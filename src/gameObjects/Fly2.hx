@@ -20,20 +20,21 @@ class Fly2 extends Fly
 		minYSpeed = 50;	
 		
 		reSpawn();
-		/*loadGraphic("img/jason.png", true, 55, 70);
+		loadGraphic("img/Energia30x30.png", true, 30, 30);
 		animation.add("left", [1]);
 		animation.add("right", [3]);
 		animation.add("up", [2]);
 		animation.add("down", [0]);
 		animation.add("death", [4, 5, 6, 7], 5, false);
-		animation.play("down");*/
+		animation.play("down");
 		
-		makeGraphic(10, 10, FlxColor.BLUE);
+		//makeGraphic(10, 10, FlxColor.BLUE);
+
 		maxVelocity.set(400, 400);
 		drag.set(500, 500);
 		
-		width = 10;
-		height = 10;
+		width = 30;
+		height = 30;
 		offset.set(0, 0);	
 		
 	}

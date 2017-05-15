@@ -20,15 +20,15 @@ class Fly1 extends Fly
 		minYSpeed = 50;*/
 		
 		reSpawn();
-		/*loadGraphic("img/jason.png", true, 55, 70);
+		loadGraphic("img/HoleWhite.png", true, 55, 70);
 		animation.add("left", [1]);
 		animation.add("right", [3]);
 		animation.add("up", [2]);
 		animation.add("down", [0]);
 		animation.add("death", [4, 5, 6, 7], 5, false);
-		animation.play("down");*/
+		animation.play("down");
 		
-		makeGraphic(15, 15, FlxColor.GREEN);
+		//makeGraphic(15, 15, FlxColor.GREEN);
 		
 		width = 15;
 		height = 15;

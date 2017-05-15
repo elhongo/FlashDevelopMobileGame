@@ -12,7 +12,7 @@ class Bullet extends FlxSprite
 	public function new() 
 	{
 		super(0, 0);
-		makeGraphic(10, 10, FlxColor.RED);
+		makeGraphic(10, 10, FlxColor.BLUE);
 	}
 	
 	public function shoot(aX:Float, aY:Float, aDirX:Float, aDirY:Float) 

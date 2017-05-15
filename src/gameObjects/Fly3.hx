@@ -14,15 +14,15 @@ class Fly3 extends Fly
 		//super(0, 0);
 		super();
 		reSpawn();
-		/*loadGraphic("img/jason.png", true, 55, 70);
-		animation.add("left", [1]);
+		loadGraphic("img/Malos.png", true, 30, 30);
+		/*animation.add("left", [1]);
 		animation.add("right", [3]);
 		animation.add("up", [2]);
 		animation.add("down", [0]);
 		animation.add("death", [4, 5, 6, 7], 5, false);
 		animation.play("down");*/
 		
-		makeGraphic(10, 10, FlxColor.YELLOW);
+		//makeGraphic(10, 10, FlxColor.YELLOW);
 		width = 10;
 		height = 10;
 		offset.set(0, 0);	

@@ -15,6 +15,8 @@ import gameObjects.Fly2;
 import gameObjects.Player;
 import gameObjects.Fly3;
 import gameObjects.Fly;
+import flixel.FlxSprite;
+import openfl.Assets;
 
 //import gameObjects.Wall;
 
@@ -42,14 +44,18 @@ class GameState extends FlxState
 	}
 	override function create():Void
 	{
+		
+		var background:FlxSprite = new FlxSprite(0, 0, Assets.getBitmapData("img/Background.png"));
+		add(background);
+		
 		xCenter = 400;
-		yCenter = 250;
+		yCenter = 240;
 		radius = 200;
 		circle = new Circle(xCenter, yCenter, radius);
 		
 		bullets = new FlxGroup();
 		add(bullets);
-		player = new Player(new Gun(bullets),200, 250, circle);
+		player = new Player(new Gun(bullets),200, 25 0, circle);
 		
 		add(player);
 		GGD.player = player;
