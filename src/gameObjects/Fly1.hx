@@ -6,6 +6,8 @@ import flixel.math.FlxPoint;
 import gameObjects.GlobalGameData.GGD;
 import flixel.util.FlxColor;
 import Random;
+import flixel.math.FlxAngle;
+import flixel.math.FlxPoint;
 
 class Fly1 extends Fly
 {
@@ -20,7 +22,7 @@ class Fly1 extends Fly
 		minYSpeed = 50;*/
 		
 		reSpawn();
-		loadGraphic("img/HoleWhite.png", true, 55, 70);
+		/*loadGraphic("img/HoleWhite.png", true, 55, 70);
 		animation.add("left", [1]);
 		animation.add("right", [3]);
 		animation.add("up", [2]);
@@ -32,11 +34,18 @@ class Fly1 extends Fly
 		
 		width = 15;
 		height = 15;
+		offset.set(0, 0);*/
+		
+		loadGraphic("img/Malos.png", true, 30, 30);
+		
+		//makeGraphic(10, 10, FlxColor.YELLOW);
+		width = 30;
+		height = 30;
 		offset.set(0, 0);	
 		
 	}
 	
-	static inline var SPEED:Float = 80;
+	static inline var SPEED:Float = 100;
 	override function update(elapsed: Float)
 	{
 		if (playingDeath||outOfBounds())
@@ -55,7 +64,9 @@ class Fly1 extends Fly
 			var deltaX:Float = player.x + player.width / 2 - (x + width / 2);
 			var deltaY:Float = player.y + player.height / 2 - (y + height);
 			var length:Float = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-			velocity.set(deltaX / length * SPEED, deltaY / length * SPEED);			
+			velocity.set(deltaX / length * SPEED, deltaY / length * SPEED);
+			
+			angle = FlxAngle.angleBetweenPoint(this, new FlxPoint(player.x, player.y), true) + 90;
 			
 			if (Math.abs(velocity.x) > Math.abs(velocity.y))
 			{

@@ -3,7 +3,8 @@ package;
 import flixel.FlxGame;
 import openfl.display.Sprite;
 import openfl.Lib;
-import states.GameState;
+//import states.GameState;
+import states.TitleState;
 
 
 class Main extends Sprite 
@@ -12,9 +13,7 @@ class Main extends Sprite
 	{
 		super();
 		
-		// Assets:
-		 //openfl.Assets.getBitmapData("img/Bueno.jpg");
-		addChild(new FlxGame(800, 480, GameState));
+		addChild(new FlxGame(800, 480, TitleState));
 
 	}
 }

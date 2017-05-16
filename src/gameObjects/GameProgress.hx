@@ -66,7 +66,7 @@ class GameProgress
 		return progress <= 0;
 	}
 	
-	public static function killedFly()
+	public static function gotEnergy()
 	{
 		progress += 1;
 	}

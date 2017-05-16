@@ -28,6 +28,8 @@ class Player extends FlxSprite
 		
 		pointPlayer = new FlxPoint(X, Y);
 		pointCenter = new FlxPoint(aCircle.getXCenter(), aCircle.getYCenter());
+		
+		angle = 90;
 	}
 	
 	override public function update(elapsed: Float)
@@ -40,6 +42,7 @@ class Player extends FlxSprite
 			pointPlayer.rotate(pointCenter, -5);
 			x = pointPlayer.x;
 			y = pointPlayer.y;
+			angle -= 5;
 		}
 		if (FlxG.keys.pressed.RIGHT)
 		{
@@ -48,6 +51,7 @@ class Player extends FlxSprite
 			pointPlayer.rotate(pointCenter, 5);
 			x = pointPlayer.x;
 			y = pointPlayer.y;
+			angle += 5;
 		}
 		/*if (FlxG.keys.pressed.UP)
 		{

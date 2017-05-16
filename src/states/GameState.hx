@@ -9,12 +9,14 @@ import gameObjects.Bullet;
 import gameObjects.Circle;
 import gameObjects.GlobalGameData.GGD;
 import gameObjects.GameProgress.GP;
+import gameObjects.SoundManager.SM;
 import gameObjects.Gun;
 import gameObjects.Fly1;
 import gameObjects.Fly2;
 import gameObjects.Player;
 import gameObjects.Fly3;
 import gameObjects.Fly;
+import gameObjects.Energy;
 import flixel.FlxSprite;
 import openfl.Assets;
 
@@ -28,7 +30,8 @@ class GameState extends FlxState
 	var bullets:FlxGroup;
 	var flies1:FlxGroup;
 	var flies3:FlxGroup;
-	var flies2:FlxGroup;
+	//var flies2:FlxGroup;
+	var energies:FlxGroup;
 	
 	var circle:Circle;
 	
@@ -37,6 +40,7 @@ class GameState extends FlxState
 	var radius: Float;
 	
 	var text:FlxText;
+	var background:FlxSprite;
 	
 	public function new() 
 	{
@@ -45,17 +49,17 @@ class GameState extends FlxState
 	override function create():Void
 	{
 		
-		var background:FlxSprite = new FlxSprite(0, 0, Assets.getBitmapData("img/Background.png"));
+		background = new FlxSprite(0, 0, "img/Background.png");
 		add(background);
 		
-		xCenter = 400;
-		yCenter = 240;
+		xCenter = 370;
+		yCenter = 215;
 		radius = 200;
 		circle = new Circle(xCenter, yCenter, radius);
 		
 		bullets = new FlxGroup();
 		add(bullets);
-		player = new Player(new Gun(bullets),200, 25 0, circle);
+		player = new Player(new Gun(bullets), xCenter - radius, yCenter, circle);
 		
 		add(player);
 		GGD.player = player;
@@ -63,17 +67,17 @@ class GameState extends FlxState
 		
 		flies1 = new FlxGroup();
 		add(flies1);
-		flies2 = new FlxGroup();
-		add(flies2);
+		energies = new FlxGroup();
+		add(energies);
 		//for (i in 0...1) {
 			flies1.add(new Fly1());
 		//}
 		for (i in 0...10) {
-			flies2.add(new Fly2());
+			energies.add(new Energy());
 		}
 		flies3 = new FlxGroup();
 		add(flies3);
-		for (i in 0...5) {
+		for (i in 0...7) {
 			flies3.add(new Fly3());
 		}
 		/*
@@ -88,6 +92,8 @@ class GameState extends FlxState
 		
 		text = new FlxText(300, 400, 0, "PROGRESS: " + GP.getPercentage() + "%", 10);
 		add(text);
+		
+		SM.levelStartSound();
 		
 	}
 	override function update(elapsed: Float):Void
@@ -108,8 +114,8 @@ class GameState extends FlxState
 		
 		FlxG.overlap(player, flies1, playerVsFly);
 		FlxG.overlap(bullets, flies1, bulletsVsFly);
-		FlxG.overlap(player, flies2, playerVsFly);
-		FlxG.overlap(bullets, flies2, bulletsVsFly);
+		FlxG.overlap(player, energies, playerVsEnergy);
+		FlxG.overlap(bullets, energies, bulletsVsEnergy);
 		FlxG.overlap(player, flies3, playerVsFly);
 		FlxG.overlap(bullets, flies3, bulletsVsFly);
 		
@@ -158,7 +164,7 @@ class GameState extends FlxState
 	{
 		aBullet.kill();
 		aFly.damage();
-		GP.killedFly();
+		//GP.killedFly();
 	}
 	
 	function playerVsFly(aPlayer:Player,aFly:Fly) 
@@ -166,6 +172,19 @@ class GameState extends FlxState
 		//FlxG.switchState(new Death());
 		aFly.damage();
 		GP.attackedByFly();
+	}
+	
+	function bulletsVsEnergy(aBullet:Bullet,aEnergy:Energy)
+	{
+		aBullet.kill();
+		aEnergy.damage();
+	}
+	
+	function playerVsEnergy(aPlayer:Player,aEnergy:Energy) 
+	{
+		aEnergy.damage();
+		GP.gotEnergy();
+		SM.gotEnergySound();
 	}
 	
 	override public function destroy():Void 

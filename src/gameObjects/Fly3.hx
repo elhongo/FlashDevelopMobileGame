@@ -5,6 +5,8 @@ import flixel.FlxSprite;
 import flixel.math.FlxPoint;
 import gameObjects.GlobalGameData.GGD;
 import flixel.util.FlxColor;
+import flixel.math.FlxAngle;
+import flixel.math.FlxPoint;
 
 class Fly3 extends Fly
 {
@@ -23,8 +25,8 @@ class Fly3 extends Fly
 		animation.play("down");*/
 		
 		//makeGraphic(10, 10, FlxColor.YELLOW);
-		width = 10;
-		height = 10;
+		width = 30;
+		height = 30;
 		offset.set(0, 0);	
 		
 		
@@ -48,6 +50,8 @@ class Fly3 extends Fly
 			var deltaY:Float = player.y + player.height / 2 - (y + height);
 			var length:Float = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 			velocity.set(deltaX / length * SPEED, deltaY / length * SPEED);
+			
+			angle = FlxAngle.angleBetweenPoint(this, new FlxPoint(player.x, player.y), true) + 90;
 			
 			if (Math.abs(velocity.x) > Math.abs(velocity.y))
 			{
