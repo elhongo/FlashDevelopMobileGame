@@ -2,7 +2,8 @@ package states;
 
 import flixel.FlxG;
 import flixel.FlxState;
-import flixel.text.FlxText;
+import flixel.FlxSprite;
+
 
 
 class GameOver extends FlxState
@@ -15,8 +16,8 @@ class GameOver extends FlxState
 	override public function create():Void 
 	{
 		super.create();
-		var text:FlxText = new FlxText(300, 300, 0, "GAME OVER", 20);
-		add(text);
+		var background: FlxSprite = new FlxSprite(0, 0, "img/GAMEOVER800x400.png");
+		add(background);
 		
 	}
 	

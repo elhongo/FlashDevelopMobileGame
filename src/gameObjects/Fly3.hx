@@ -73,6 +73,9 @@ class Fly3 extends Fly
 		
 		super.update(elapsed);
 	}
+	
+	
+	
 	/*//var playingDeath:Bool;
 	public override function damage():Void
 	{
@@ -82,7 +85,13 @@ class Fly3 extends Fly
 		
 		
 	}*/
-	public override function reSpawn()
+	private override function setSpawnPoint()
+	{
+		x = GGD.circle.getXCenter();
+		y = GGD.circle.getYCenter();
+	}
+
+	/*public override function reSpawn()
 	{
 		var dir:FlxPoint = FlxPoint.weak(Math.random()*2-1, Math.random()*2-1);
 		var length:Float = Math.sqrt(dir.x * dir.x + dir.y * dir.y);
@@ -92,6 +101,6 @@ class Fly3 extends Fly
 		dir.y *= 500;
 		x = GGD.player.x + dir.x;
 		y = GGD.player.y + dir.y;
-	}
+	}*/
 	
 }

@@ -41,6 +41,7 @@ class GameState extends FlxState
 	
 	var text:FlxText;
 	var background:FlxSprite;
+	var score:FlxSprite;
 	
 	public function new() 
 	{
@@ -52,6 +53,8 @@ class GameState extends FlxState
 		background = new FlxSprite(0, 0, "img/Background.png");
 		add(background);
 		
+		score = new FlxSprite(682, 0, "img/scoreSmall.png");
+		add(score); 
 		xCenter = 370;
 		yCenter = 215;
 		radius = 200;
@@ -93,8 +96,9 @@ class GameState extends FlxState
 		text = new FlxText(300, 400, 0, "PROGRESS: " + GP.getPercentage() + "%", 10);
 		add(text);
 		
+
+		SM.Instantiate();
 		SM.levelStartSound();
-		
 	}
 	override function update(elapsed: Float):Void
 	{
@@ -120,7 +124,7 @@ class GameState extends FlxState
 		FlxG.overlap(bullets, flies3, bulletsVsFly);
 		
 		text.text = "PROGRESS: " + GP.getPercentage() + "%";
-		
+		SM.checkTracks();
 		super.update(elapsed);
 	}
 	/*
@@ -176,8 +180,8 @@ class GameState extends FlxState
 	
 	function bulletsVsEnergy(aBullet:Bullet,aEnergy:Energy)
 	{
-		aBullet.kill();
-		aEnergy.damage();
+		//aBullet.kill();
+		//aEnergy.damage();
 	}
 	
 	function playerVsEnergy(aPlayer:Player,aEnergy:Energy) 

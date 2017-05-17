@@ -2,7 +2,8 @@ package states;
 
 import flixel.FlxG;
 import flixel.FlxState;
-import flixel.text.FlxText;
+import flixel.FlxSprite;
+import gameObjects.SoundManager.SM;
 
 
 class LevelComplete extends FlxState
@@ -15,9 +16,10 @@ class LevelComplete extends FlxState
 	override public function create():Void 
 	{
 		super.create();
-		var text:FlxText = new FlxText(300, 300, 0, "LEVEL COMPLETE!", 20);
-		add(text);
-		
+		var background: FlxSprite = new FlxSprite(0, 0, "img/GAMEOVER800x400.png");
+		add(background);
+		SM.Instantiate();
+		SM.menuTrackSound();
 	}
 	
 	override public function update(elapsed: Float):Void 
