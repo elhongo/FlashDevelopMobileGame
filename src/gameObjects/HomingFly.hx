@@ -9,38 +9,28 @@ import Random;
 import flixel.math.FlxAngle;
 import flixel.math.FlxPoint;
 
-class Fly1 extends Target
+class HomingFly extends Target
 {
+	var SPEED: Float;
 	
 	public function new() 
 	{
 		super();
 		
 		reSpawn();
-		/*loadGraphic("img/HoleWhite.png", true, 55, 70);
-		animation.add("left", [1]);
-		animation.add("right", [3]);
-		animation.add("up", [2]);
-		animation.add("down", [0]);
-		animation.add("death", [4, 5, 6, 7], 5, false);
-		animation.play("down");
-		
-		//makeGraphic(15, 15, FlxColor.GREEN);
-		
-		width = 15;
-		height = 15;
-		offset.set(0, 0);*/
 		
 		loadGraphic("img/Malos.png", true, 30, 30);
 		
 		//makeGraphic(10, 10, FlxColor.YELLOW);
 		width = 30;
 		height = 30;
-		offset.set(0, 0);	
+		offset.set(0, 0);
 		
+		SPEED = maxSpeed;
 	}
 	
-	static inline var SPEED:Float = 100;
+	//static inline var SPEED:Float = 100;
+	
 	override function update(elapsed: Float)
 	{
 		if (playingDeath||outOfBounds())
@@ -92,11 +82,7 @@ class Fly1 extends Target
 	}
 	
 	private override function setSpawnPoint()
-	{
-		/*var dir:FlxPoint = FlxPoint.weak(Math.random()*2-1, Math.random()*2-1);
-		x = GGD.player.x + dir.x;
-		y = GGD.player.y + dir.y;*/
-		
+	{		
 		x = GGD.circle.getXCenter();
 		y = GGD.circle.getYCenter();
 	}

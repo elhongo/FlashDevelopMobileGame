@@ -4,28 +4,31 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
 import gameObjects.GlobalGameData.GGD;
-import gameObjects.GameProgress.GP;
 import flixel.util.FlxColor;
 import Random;
+import flixel.math.FlxAngle;
 
-class Energy extends Target
+class NormalFly extends Target
 {
 	
 	public function new() 
 	{
 		super();
 		
+		maxSpeed = 80;
+		minSpeed = 40;
+		
 		reSpawn();
-		loadGraphic("img/sphere50x47.png", true, 50, 47);
+		loadGraphic("img/Malos.png", true, 30, 30);
 		
 		
-		//makeGraphic(10, 10, FlxColor.BLUE);
+		//makeGraphic(10, 10, FlxColor.YELLOW);
 
 		maxVelocity.set(400, 400);
 		drag.set(500, 500);
 		
-		width = 50;
-		height = 47;
+		width = 30;
+		height = 30;
 		offset.set(0, 0);	
 		
 	}
@@ -75,16 +78,6 @@ class Energy extends Target
 	{
 		x = GGD.circle.getXCenter();
 		y = GGD.circle.getYCenter();
-	}
-	
-	public override function outOfBounds(): Bool
-	{
-		var ret: Bool = super.outOfBounds();
-		if (ret)
-		{
-			GP.attackedByFly(); //CAPAZ QUE ESTE CONVIENE CAMBIARLO DE LUGAR
-		}
-		return ret;
 	}
 	
 	

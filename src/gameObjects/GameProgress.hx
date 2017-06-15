@@ -48,6 +48,9 @@ class GameProgress
 		switch(level)
 		{
 			case 1:
+				initialProgress = 50;
+				finalProgress = 100;
+			case 2:
 				initialProgress = 20;
 				finalProgress = 100;
 			default:

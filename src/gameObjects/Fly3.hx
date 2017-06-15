@@ -8,7 +8,7 @@ import flixel.util.FlxColor;
 import flixel.math.FlxAngle;
 import flixel.math.FlxPoint;
 
-class Fly3 extends Fly
+class Fly3 extends Target
 {
 
 	public function new() 

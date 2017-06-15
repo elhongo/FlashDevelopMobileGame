@@ -7,17 +7,12 @@ import gameObjects.GlobalGameData.GGD;
 import flixel.util.FlxColor;
 import Random;
 
-class Fly2 extends Fly
+class Fly2 extends Target
 {
 	
 	public function new() 
 	{
 		super();
-		
-		maxXSpeed = 100;
-		maxYSpeed = 100;
-		minXSpeed = 50;
-		minYSpeed = 50;	
 		
 		reSpawn();
 		loadGraphic("img/sphere50x47.png", true, 50, 47);
@@ -79,17 +74,6 @@ class Fly2 extends Fly
 	{
 		x = GGD.circle.getXCenter();
 		y = GGD.circle.getYCenter();
-	}
-	
-	private override function setSpeed()
-	{
-		var rangeMinX: Float = Random.float(( -1) * maxXSpeed, ( -1) * minXSpeed);
-		var rangeMaxX: Float = Random.float(minXSpeed, maxXSpeed);
-		var rangeMinY: Float = Random.float(( -1) * maxYSpeed, ( -1) * minYSpeed);
-		var rangeMaxY: Float = Random.float(minYSpeed, maxYSpeed);
-		
-		xSpeed = Random.float( rangeMinX, rangeMaxX);
-		ySpeed = Random.float( rangeMinY, rangeMaxY);
 	}
 	
 	
