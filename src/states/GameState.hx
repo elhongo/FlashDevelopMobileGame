@@ -36,7 +36,7 @@ class GameState extends FlxState
 		
 		LVL.setLevel(1);
 		LVL.setUpLevel();
-
+	
 		add(GGD.player);
 		add(GGD.bullets);
 		add(GGD.energies);
