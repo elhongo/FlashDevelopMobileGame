@@ -13,9 +13,9 @@ class HomingFly extends Target
 {
 	var SPEED: Float;
 	
-	public function new() 
+	public function new(mxSpeed: Float, mnSpeed: Float) 
 	{
-		super();
+		super(mxSpeed, mnSpeed);
 		
 		reSpawn();
 		

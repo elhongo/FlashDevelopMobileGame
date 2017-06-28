@@ -11,9 +11,9 @@ import Random;
 class Energy extends Target
 {
 	
-	public function new() 
+	public function new(mxSpeed: Float, mnSpeed: Float) 
 	{
-		super();
+		super(mxSpeed, mnSpeed);
 		
 		reSpawn();
 		loadGraphic("img/sphere50x47.png", true, 50, 47);

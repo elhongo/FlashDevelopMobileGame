@@ -8,6 +8,7 @@ class GlobalGameData
 	public static var circle:Circle;
 	public static var bullets:FlxGroup;
 	public static var energies: FlxGroup;
+	public static var fastEnergies: FlxGroup;
 	public static var normalFlies: FlxGroup;
 	public static var homingFlies: FlxGroup;
 	
@@ -24,6 +25,7 @@ class GlobalGameData
 		energies = null;
 		normalFlies = null;
 		homingFlies = null;
+		fastEnergies = null;
 	}
 	
 	

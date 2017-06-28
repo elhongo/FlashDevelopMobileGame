@@ -74,6 +74,11 @@ class GameProgress
 		progress += 1;
 	}
 	
+	public static function gotFastEnergy()
+	{
+		progress += 2;
+	}
+	
 	public static function attackedByFly()
 	{
 		progress -= 1;

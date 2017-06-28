@@ -34,12 +34,13 @@ class GameState extends FlxState
 		score = new FlxSprite(682, 0, "img/scoreSmall.png");
 		add(score); 
 		
-		LVL.setLevel(1);
+		LVL.setLevel(0);
 		LVL.setUpLevel();
-	
+
 		add(GGD.player);
 		add(GGD.bullets);
 		add(GGD.energies);
+		add(GGD.fastEnergies);
 		add(GGD.normalFlies);
 		add(GGD.homingFlies);
 		
@@ -64,6 +65,8 @@ class GameState extends FlxState
 
 		FlxG.overlap(GGD.player, GGD.energies, COLL.playerVsEnergy);
 		FlxG.overlap(GGD.bullets, GGD.energies, COLL.bulletsVsEnergy);
+		FlxG.overlap(GGD.player, GGD.fastEnergies, COLL.playerVsFastEnergy);
+		FlxG.overlap(GGD.bullets, GGD.fastEnergies, COLL.bulletsVsFastEnergy);
 		FlxG.overlap(GGD.player, GGD.normalFlies, COLL.playerVsFly);
 		FlxG.overlap(GGD.bullets, GGD.normalFlies, COLL.bulletsVsTarget);
 		FlxG.overlap(GGD.player, GGD.homingFlies, COLL.playerVsFly);

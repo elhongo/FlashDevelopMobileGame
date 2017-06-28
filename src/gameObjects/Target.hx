@@ -20,12 +20,15 @@ class Target extends FlxSprite
 	//static inline var SPEED:Float = 100;
 	var playingDeath:Bool;
 	
-	public function new() 
+	public function new(mxSpeed: Float, mnSpeed: Float) 
 	{
 		super(0, 0);
 		
-		maxSpeed = 100;
-		minSpeed = 50;
+		//maxSpeed = 100;
+		//minSpeed = 50;
+		
+		maxSpeed = mxSpeed;
+		minSpeed = mnSpeed;
 		
 		/*loadGraphic("img/jason.png", true, 55, 70);
 		animation.add("left", [1]);

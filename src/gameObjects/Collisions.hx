@@ -42,4 +42,17 @@ class Collisions
 		SM.gotEnergySound();
 	}
 	
+	public static function bulletsVsFastEnergy(aBullet:Bullet,aEnergy:FastEnergy)
+	{
+		aBullet.kill();
+		aEnergy.damage();
+	}
+	
+	public static function playerVsFastEnergy(aPlayer:Player,aEnergy:FastEnergy) 
+	{
+		aEnergy.damage();
+		GP.gotFastEnergy();
+		SM.gotEnergySound();
+	}
+	
 }

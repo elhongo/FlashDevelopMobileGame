@@ -36,32 +36,42 @@ class Factory
 		nGun: Gun = new Gun(new FlxGroup);
 	}*/
 	
-	public static function createEnergies(cuantity: Int)
+	public static function createEnergies(cuantity: Int, maxSpeed: Float, minSpeed: Float)
 	{
 		var nEnergies: FlxGroup = new FlxGroup();
 		for (i in 0...cuantity)
 		{
-			nEnergies.add(new Energy());
+			nEnergies.add(new Energy(maxSpeed, minSpeed));
 		}
 		GGD.energies = nEnergies;
 	}
 	
-	public static function createNormalFlies(cuantity: Int)
+	public static function createFastEnergies(cuantity: Int, maxSpeed: Float, minSpeed: Float)
+	{
+		var nEnergies: FlxGroup = new FlxGroup();
+		for (i in 0...cuantity)
+		{
+			nEnergies.add(new FastEnergy(maxSpeed, minSpeed));
+		}
+		GGD.fastEnergies = nEnergies;
+	}
+	
+	public static function createNormalFlies(cuantity: Int, maxSpeed: Float, minSpeed: Float)
 	{
 		var nFlies: FlxGroup = new FlxGroup();
 		for (i in 0...cuantity)
 		{
-			nFlies.add(new NormalFly());
+			nFlies.add(new NormalFly(maxSpeed, minSpeed));
 		}
 		GGD.normalFlies = nFlies;
 	}
 	
-	public static function createHomingFlies(cuantity: Int)
+	public static function createHomingFlies(cuantity: Int, maxSpeed: Float, minSpeed: Float)
 	{
 		var nFlies: FlxGroup = new FlxGroup();
 		for (i in 0...cuantity)
 		{
-			nFlies.add(new HomingFly());
+			nFlies.add(new HomingFly(maxSpeed, minSpeed));
 		}
 		GGD.homingFlies = nFlies;
 	}
