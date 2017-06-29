@@ -9,7 +9,7 @@ import states.TitleState;
 
 class Main extends Sprite 
 {
-	public function new() 
+	public function new()  
 	{
 		super();
 		
