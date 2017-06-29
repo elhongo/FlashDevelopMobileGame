@@ -16,7 +16,7 @@ class MenuState extends FlxState
 	override public function create():Void 
 	{
 		super.create();
-		var background: FlxSprite = new FlxSprite(0, 0, "img/title.jpg");
+		var background: FlxSprite = new FlxSprite(0, 0, "img/Menu.png");
 		add(background);
 		SM.Instantiate();
 		SM.menuTrackSound();
@@ -27,7 +27,9 @@ class MenuState extends FlxState
 	{
 		if (FlxG.keys.justPressed.ONE)
 		{
+			
 			FlxG.switchState(new GameState(1));
+			
 		}
 		if (FlxG.keys.justPressed.TWO){
 			FlxG.switchState(new GameState(2));
@@ -35,7 +37,12 @@ class MenuState extends FlxState
 		if (FlxG.keys.justPressed.THREE){
 			FlxG.switchState(new GameState(3));
 		}
-		
+		if (FlxG.keys.justPressed.FOUR){
+			FlxG.switchState(new GameState(4));
+		}
+		if (FlxG.keys.justPressed.FIVE){
+			FlxG.switchState(new GameState(5));
+		}
 		
 		super.update(elapsed);
 	}
