@@ -26,7 +26,7 @@ class LevelComplete extends FlxState
 	{
 		if (FlxG.keys.justPressed.ENTER)
 		{
-			FlxG.switchState(new GameState());
+			FlxG.switchState(new MenuState());
 		}
 		super.update(elapsed);
 	}

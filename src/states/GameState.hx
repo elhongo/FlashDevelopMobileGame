@@ -20,9 +20,10 @@ class GameState extends FlxState
 	var text:FlxText;
 	var background:FlxSprite;
 	var score:FlxSprite;
-	
-	public function new() 
+	var selectedLevel: Int;
+	public function new(levelnumber: Int) 
 	{
+		selectedLevel = levelnumber;
 		super();
 	}
 	override function create():Void
@@ -34,7 +35,7 @@ class GameState extends FlxState
 		score = new FlxSprite(682, 0, "img/scoreSmall.png");
 		add(score); 
 		
-		LVL.setLevel(0);
+		LVL.setLevel(selectedLevel);
 		LVL.setUpLevel();
 
 		add(GGD.player);
