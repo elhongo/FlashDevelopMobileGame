@@ -16,10 +16,10 @@ class FastEnergy extends Target
 		super(mxSpeed, mnSpeed);
 		
 		reSpawn();
-		//loadGraphic("img/sphere50x47.png", true, 50, 47);
+		loadGraphic("img/EsferaYellow50x50.png", true, 50, 50);
 		
 		
-		makeGraphic(10, 10, FlxColor.YELLOW);
+	
 
 		maxVelocity.set(400, 400);
 		drag.set(500, 500);

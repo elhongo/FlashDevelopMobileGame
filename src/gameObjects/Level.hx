@@ -8,7 +8,10 @@ typedef LVL = Level;
 class Level 
 {
 	private static var levelNumber: Int;
-
+	public static var CircleCenterX: Int;
+	public static var CircleCenterY: Int;
+	public static var CircleRadius: Int;
+	
 	public function new() 
 	{
 		
@@ -31,10 +34,13 @@ class Level
 	
 	public static function setUpLevel()
 	{
+		CircleCenterX = 960 - 60;
+		CircleCenterY = 540 - 60;
+		CircleRadius = 440;
 		switch(levelNumber)
 		{
 			case 1:
-				FAC.createCircle(370, 215, 200);
+				FAC.createCircle(CircleCenterX, CircleCenterY, CircleRadius);
 				FAC.createPlayer(GGD.circle.getXCenter() - GGD.circle.getRadius(), GGD.circle.getYCenter(), GGD.circle);
 				FAC.createEnergies(10, 100, 40);
 				FAC.createFastEnergies(0, 0, 0);
@@ -42,7 +48,7 @@ class Level
 				FAC.createHomingFlies(0, 0, 0);
 				GP.setLevel(1);
 			case 2:
-				FAC.createCircle(370, 215, 200);
+				FAC.createCircle(CircleCenterX, CircleCenterY, CircleRadius);
 				FAC.createPlayer(GGD.circle.getXCenter() - GGD.circle.getRadius(), GGD.circle.getYCenter(), GGD.circle);
 				FAC.createEnergies(10, 100, 50);
 				FAC.createFastEnergies(1, 200, 50);
@@ -50,7 +56,7 @@ class Level
 				FAC.createHomingFlies(1, 100, 50);
 				GP.setLevel(2);
 			case 3:
-				FAC.createCircle(370, 215, 200);
+				FAC.createCircle(CircleCenterX, CircleCenterY, CircleRadius);
 				FAC.createPlayer(GGD.circle.getXCenter() - GGD.circle.getRadius(), GGD.circle.getYCenter(), GGD.circle);
 				FAC.createEnergies(10, 120, 50);
 				FAC.createFastEnergies(3, 200, 50);
@@ -58,7 +64,7 @@ class Level
 				FAC.createHomingFlies(1, 120, 50);
 				GP.setLevel(3);
 			default:
-				FAC.createCircle(370, 215, 200);
+				FAC.createCircle(CircleCenterX, CircleCenterY, CircleRadius);
 				FAC.createPlayer(GGD.circle.getXCenter() - GGD.circle.getRadius(), GGD.circle.getYCenter(), GGD.circle);
 				FAC.createEnergies(10, 100, 50);
 				FAC.createFastEnergies(1, 200, 50);

@@ -16,7 +16,7 @@ class Fly3 extends Target
 		//super(0, 0);
 		super();
 		reSpawn();
-		loadGraphic("img/Malos.png", true, 30, 30);
+		loadGraphic("img/Malos60x60.png", true, 60, 60);
 		/*animation.add("left", [1]);
 		animation.add("right", [3]);
 		animation.add("up", [2]);
@@ -33,7 +33,7 @@ class Fly3 extends Target
 	}
 	static inline var SPEED:Float = 50;
 	override function update(elapsed: Float)
-	{
+	{ 
 		if (playingDeath)
 		{
 			velocity.set(0, 0);

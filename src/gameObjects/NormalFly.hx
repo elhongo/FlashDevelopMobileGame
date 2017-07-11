@@ -19,7 +19,7 @@ class NormalFly extends Target
 		//minSpeed = 40;
 		
 		reSpawn();
-		loadGraphic("img/Malos.png", true, 30, 30);
+		loadGraphic("img/Malos60x60.png", true, 60, 60);
 		
 		
 		//makeGraphic(10, 10, FlxColor.YELLOW);

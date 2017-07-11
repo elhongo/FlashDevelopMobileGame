@@ -13,7 +13,7 @@ class Bullet extends FlxSprite
 	{
 		super(0, 0);
 		
-		loadGraphic("img/bala10x10.png", true, 10, 10);
+		loadGraphic("img/bullet20X20.png", true, 20, 20);
 		width = 10;
 		height = 10;
 		offset.set(0, 0);

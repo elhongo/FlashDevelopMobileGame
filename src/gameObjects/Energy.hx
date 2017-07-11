@@ -16,7 +16,7 @@ class Energy extends Target
 		super(mxSpeed, mnSpeed);
 		
 		reSpawn();
-		loadGraphic("img/sphere50x47.png", true, 50, 47);
+		loadGraphic("img/Esfera60x60.png", true, 60, 60);
 		
 		
 		//makeGraphic(10, 10, FlxColor.BLUE);

@@ -20,7 +20,8 @@ class Player extends FlxSprite
 		super(X, Y);
 		
 		//makeGraphic(20, 20);
-		loadGraphic("img/Bueno60x60.png", true,60,60);
+		loadGraphic("img/Bueno120x120.png", true, 120, 120);
+		
 		maxVelocity.set(200, 200);
 		drag.set(300, 300);
 		gun = aGun;
@@ -63,10 +64,10 @@ class Player extends FlxSprite
 		}*/
 		if (FlxG.mouse.justPressed)
 		{
-			gun.fire(x, y);
+			gun.fire(x+60, y+60);
 		}
 		if (FlxG.keys.justPressed.CONTROL || FlxG.keys.justPressed.SPACE){
-			gun.fire(x, y);
+			gun.fire(x+60, y+60);
 		}
 		
 		super.update(elapsed);

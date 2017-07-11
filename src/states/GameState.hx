@@ -5,6 +5,7 @@ import flixel.FlxG;
 import flixel.FlxState;
 import flixel.group.FlxGroup;
 import flixel.text.FlxText;
+import flixel.ui.FlxButton;
 import gameObjects.GlobalGameData.GGD;
 import gameObjects.GameProgress.GP;
 import gameObjects.SoundManager.SM;
@@ -21,6 +22,7 @@ class GameState extends FlxState
 	var background:FlxSprite;
 	var score:FlxSprite;
 	var selectedLevel: Int;
+	
 	public function new(levelnumber: Int) 
 	{
 		selectedLevel = levelnumber;
@@ -29,15 +31,28 @@ class GameState extends FlxState
 	override function create():Void
 	{
 		
-		background = new FlxSprite(0, 0, "img/Background.png");
+		
+		
+		LVL.setLevel(selectedLevel);
+		LVL.setUpLevel();
+		
+		if (selectedLevel == 1){
+			background = new FlxSprite(0, 0, "img/FondoNivel1.png");
+		}else if (selectedLevel == 2){
+			background = new FlxSprite(0, 0, "img/FondoNivel2.png");
+		}else if (selectedLevel == 3){
+			background = new FlxSprite(0, 0, "img/FondoNivel3.png");
+		}else if (selectedLevel == 4){
+			background = new FlxSprite(0, 0, "img/FondoNivel4.png");
+		}else if (selectedLevel == 5){
+			background = new FlxSprite(0, 0, "img/FondoNivel5.png");
+		}
+		
+		
 		add(background);
 		
 		score = new FlxSprite(682, 0, "img/scoreSmall.png");
 		add(score); 
-		
-		LVL.setLevel(selectedLevel);
-		LVL.setUpLevel();
-
 		add(GGD.player);
 		add(GGD.bullets);
 		add(GGD.energies);
@@ -58,6 +73,10 @@ class GameState extends FlxState
 	}
 	override function update(elapsed: Float):Void
 	{
+		if (FlxG.keys.justPressed.ESCAPE){
+			FlxG.switchState(new MenuState());
+		}
+	
 		checkGameEnd();
 		
 		var camera:FlxCamera = FlxG.camera;
