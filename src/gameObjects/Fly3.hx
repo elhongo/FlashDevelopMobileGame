@@ -16,7 +16,11 @@ class Fly3 extends Target
 		//super(0, 0);
 		super();
 		reSpawn();
-		loadGraphic("img/Malos60x60.png", true, 60, 60);
+		//loadGraphic("img/MalosSpriteSheet540x44.png", true, 60, 44);
+		
+		//animation.add("flyEnemy", [0,1], 50, true);
+		
+		//animation.play("flyEnemy");
 		/*animation.add("left", [1]);
 		animation.add("right", [3]);
 		animation.add("up", [2]);

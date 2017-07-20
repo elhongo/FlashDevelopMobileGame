@@ -34,7 +34,7 @@ class Level
 	
 	public static function setUpLevel()
 	{
-		CircleCenterX = 960 - 60;
+		CircleCenterX = 960 - 90;
 		CircleCenterY = 540 - 60;
 		CircleRadius = 440;
 		switch(levelNumber)

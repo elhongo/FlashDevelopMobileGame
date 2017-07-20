@@ -19,8 +19,13 @@ class HomingFly extends Target
 		
 		reSpawn();
 		
-		loadGraphic("img/Malos60x60.png", true, 60, 60);
+		//loadGraphic("img/Malos60x60.png", true, 60, 60);
+			loadGraphic("img/MalosSpriteSheet540x44.png", true, 60, 44);
 		
+		animation.add("flyEnemy", [0,1], 50, true);
+		animation.add("death", [2, 3, 4, 5, 6, 7, 8], 14, false);
+		animation.play("flyEnemy");
+		animation.finishCallback = DeathFinished;
 		//makeGraphic(10, 10, FlxColor.YELLOW);
 		width = 30;
 		height = 30;
@@ -30,6 +35,16 @@ class HomingFly extends Target
 	}
 	
 	//static inline var SPEED:Float = 100;
+		public function DeathFinished(animname: String){
+		if (animname == "death"){
+			reSpawn();
+				playingDeath = false;
+				allowCollisions = FlxObject.ANY;
+				animation.play("flyEnemy");
+				
+		}
+	
+	}
 	
 	override function update(elapsed: Float)
 	{
@@ -38,9 +53,10 @@ class HomingFly extends Target
 			velocity.set(0, 0);
 			//if (animation.finished)
 			//{
-				reSpawn();
-				playingDeath = false;
-				allowCollisions = FlxObject.ANY;
+				//reSpawn();
+				//playingDeath = false;
+				//allowCollisions = FlxObject.ANY;
+				animation.play("death");
 				//animation.play("down");
 			//}
 		}else{

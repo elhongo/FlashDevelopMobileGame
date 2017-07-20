@@ -26,7 +26,7 @@ class Target extends FlxSprite
 		
 		//maxSpeed = 100;
 		//minSpeed = 50;
-		
+	
 		maxSpeed = mxSpeed;
 		minSpeed = mnSpeed;
 		

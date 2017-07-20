@@ -22,6 +22,11 @@ class GameState extends FlxState
 	var background:FlxSprite;
 	var score:FlxSprite;
 	var selectedLevel: Int;
+	var redBar20:FlxSprite;
+	var orangeBar40:FlxSprite;
+	var yellowBar60:FlxSprite;
+	var greenBar80:FlxSprite;
+	var blueBar100:FlxSprite;
 	
 	public function new(levelnumber: Int) 
 	{
@@ -50,9 +55,18 @@ class GameState extends FlxState
 		
 		
 		add(background);
-		
+		redBar20 = new FlxSprite(1540, 30, "img/LifeRed63x19.png");
+		orangeBar40 = new FlxSprite(1600, 30, "img/LifeOrange63x19.png");
+		yellowBar60 = new FlxSprite(1660, 30, "img/LifeYellow63x19.png");
+		greenBar80 = new FlxSprite(1720, 30, "img/LifeGreen63x19.png");
+		blueBar100 = new FlxSprite(1780, 30, "img/LifeBlue63x19.png");
+		add(redBar20);
+		add(orangeBar40);
+		add(yellowBar60);
+		add(greenBar80);
+		add(blueBar100);
 		score = new FlxSprite(682, 0, "img/scoreSmall.png");
-		add(score); 
+		//add(score); 
 		add(GGD.player);
 		add(GGD.bullets);
 		add(GGD.energies);
@@ -65,7 +79,7 @@ class GameState extends FlxState
 		GP.startGame();
 		
 		text = new FlxText(300, 400, 0, "PROGRESS: " + GP.getPercentage() + "%", 10);
-		add(text);
+		//add(text);
 		
 
 		SM.Instantiate();
@@ -92,7 +106,39 @@ class GameState extends FlxState
 		FlxG.overlap(GGD.player, GGD.homingFlies, COLL.playerVsFly);
 		FlxG.overlap(GGD.bullets, GGD.homingFlies, COLL.bulletsVsTarget);
 		
-		text.text = "PROGRESS: " + GP.getPercentage() + "%";
+		//text.text = "PROGRESS: " + GP.getPercentage() + "%";
+		if (GP.getPercentage() > 80){
+			redBar20.visible = true;
+			orangeBar40.visible = true;
+			yellowBar60.visible = true;
+			greenBar80.visible = true;
+			blueBar100.visible = true;
+		}else if(GP.getPercentage() > 60){
+			redBar20.visible = true;
+			orangeBar40.visible = true;
+			yellowBar60.visible = true;
+			greenBar80.visible = true;
+			blueBar100.visible = false;
+		}else if (GP.getPercentage() > 40){
+			redBar20.visible = true;
+			orangeBar40.visible = true;
+			yellowBar60.visible = true;
+			greenBar80.visible = false;
+			blueBar100.visible = false;
+		}else if (GP.getPercentage() > 20){
+			redBar20.visible = true;
+			orangeBar40.visible = true;
+			yellowBar60.visible = false;
+			greenBar80.visible = false;
+			blueBar100.visible = false;
+			
+		}else{
+			redBar20.visible = true;
+			orangeBar40.visible = false;
+			yellowBar60.visible = false;
+			greenBar80.visible = false;
+			blueBar100.visible = false;
+		}
 		SM.checkTracks();
 		super.update(elapsed);
 	}

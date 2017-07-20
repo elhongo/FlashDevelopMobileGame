@@ -16,7 +16,7 @@ class GameOver extends FlxState
 	override public function create():Void 
 	{
 		super.create();
-		var background: FlxSprite = new FlxSprite(0, 0, "img/GAMEOVER.png");
+		var background: FlxSprite = new FlxSprite(0, 0, "img/GAMEOVER.jpg");
 		add(background);
 		
 	}

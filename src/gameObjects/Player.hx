@@ -20,7 +20,13 @@ class Player extends FlxSprite
 		super(X, Y);
 		
 		//makeGraphic(20, 20);
-		loadGraphic("img/Bueno120x120.png", true, 120, 120);
+		loadGraphic("img/BuenoSpriteSheet340x120.png", true, 170, 120,false);
+		
+		
+		animation.add("fly", [0,1], 50, true);
+		
+		animation.play("fly");
+		
 		
 		maxVelocity.set(200, 200);
 		drag.set(300, 300);
@@ -35,6 +41,7 @@ class Player extends FlxSprite
 	
 	override public function update(elapsed: Float)
 	{
+		
 		acceleration.set(0,0);
 		if (FlxG.keys.pressed.LEFT)
 		{

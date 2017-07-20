@@ -30,9 +30,14 @@ class Fly1 extends Target
 		width = 15;
 		height = 15;
 		offset.set(0, 0);*/
+			
+		//loadGraphic("img/MalosSpriteSheet540x44.png", true, 60, 44);
 		
-		loadGraphic("img/Malos60x60.png", true, 60, 60);
+		//animation.add("flyEnemy", [0,1], 50, true);
 		
+		//animation.play("flyEnemy");		
+	
+		//animation
 		//makeGraphic(10, 10, FlxColor.YELLOW);
 		width = 30;
 		height = 30;

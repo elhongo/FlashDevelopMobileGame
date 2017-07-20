@@ -16,7 +16,7 @@ class LevelComplete extends FlxState
 	override public function create():Void 
 	{
 		super.create();
-		var background: FlxSprite = new FlxSprite(0, 0, "img/GAMEOVER800x400.png");
+		var background: FlxSprite = new FlxSprite(0, 0, "img/GAMEOVER.jpg");
 		add(background);
 		SM.Instantiate();
 		SM.menuTrackSound();
