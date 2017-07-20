@@ -22,6 +22,7 @@ class SoundManager
 	static var trackMal2:FlxSound;
 	static var menuTrack:FlxSound;
 	static var startGame:FlxSound;
+	static var killEnemy:FlxSound;
 	
 	public function new() 
 	{
@@ -57,6 +58,9 @@ class SoundManager
 		trackMal2 = FlxG.sound.load("sound/Sonido mal opcion II.wav");
 		trackMal2.looped = true;
 		
+		killEnemy = FlxG.sound.load("sound/MUEREenemigo.wav");
+		killEnemy.looped = false;
+		
 		track1.play(false, 0.0, null);
 		track2.play(false, 0.0, null);
 		track3.play(false, 0.0, null);
@@ -82,6 +86,11 @@ class SoundManager
 	public static function fireSound()
 	{
 		fire.play(true, 0.0, null);
+	}
+	
+	public static function killSound()
+	{
+		killEnemy.play(true, 0.0, null);
 	}
 	
 	public static function levelStartSound()

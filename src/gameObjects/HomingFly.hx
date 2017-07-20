@@ -57,6 +57,7 @@ class HomingFly extends Target
 				//playingDeath = false;
 				//allowCollisions = FlxObject.ANY;
 				animation.play("death");
+				SoundManager.killSound();
 				//animation.play("down");
 			//}
 		}else{

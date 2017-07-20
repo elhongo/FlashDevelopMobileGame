@@ -54,6 +54,7 @@ class NormalFly extends Target
 			//if (animation.finished)
 			//{
 				animation.play("death");
+				SoundManager.killSound();
 				//animation.finishCallback("death");
 				
 				//animation.play("down");
